@@ -30,7 +30,8 @@ The language did not change in version 5 but there were many API changes.
 - [Potassco guide on GitHub](https://github.com/potassco/guide/releases/) for series 5 and later
 - [Potassco guide on Sourceforge](https://sourceforge.net/projects/potassco/files/guide/) for series 4 and earlier
 - [Formal language specification](https://www.cs.utexas.edu/users/vl/papers/AG.pdf)
-- [Python API Reference](/clingo/python-api/current/clingo.html) (versions
+- [Python API Reference](/clingo/python-api/current/) (versions
+  [5.4](/clingo/python-api/5.4/),
   [5.3](/clingo/python-api/5.3/clingo.html),
   [5.2](/clingo/python-api/5.2/clingo.html),
   [5.1](/clingo/python-api/5.1/clingo.html),
