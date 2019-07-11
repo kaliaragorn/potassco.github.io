@@ -5,7 +5,7 @@ description: The clingo.ast-5.4.0 module …
 css:
 - /css/pdoc.css
 - /css/github.min.css
-permalink: /clingo/python-api/current/ast/
+permalink: /clingo/python-api/5.4/ast/
 ---
 <main>
 <article id="content">
@@ -320,7 +320,7 @@ statement = Rule
 <ul class="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="clingo" href="{{site.baseurl}}{% link clingo/python-api/current/clingo/index.html %}">clingo</a></code></li>
+<li><code><a title="clingo" href="{{site.baseurl}}{% link clingo/python-api/5.4/index.html %}">clingo</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
@@ -715,13 +715,12 @@ statement = Rule
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
 <dt id="clingo.ast.AST"><code class="flex name class">
-<span>class <span class="ident">AST</span><span>
+<span>class <span class="ident">AST</span></span><span>(type:<a title="clingo.ast.ASTType" href="#clingo.ast.ASTType"><code>ASTType</code></a>, **arguments:<code>Mapping</code>[<code>str</code>,<code>Any</code>])</span>
 </code></dt>
 <dd>
-<section class="desc"><p>AST(type, **arguments)</p>
-<p>Represents a node in the abstract syntax tree.</p>
+<section class="desc"><p>Represents a node in the abstract syntax tree.</p>
 <p>AST nodes implement Python's rich comparison operators and are ordered
-structurally ignoring the location. They implement the Hashable interface.
+structurally ignoring the location. They can also be used as dictionary keys.
 Their string representation corresponds to their gringo representation.</p>
 <h2 id="parameters">Parameters</h2>
 <dl>
@@ -750,14 +749,13 @@ given in the <a href=".">grammar</a> above.</p></section>
 <h3>Methods</h3>
 <dl>
 <dt id="clingo.ast.AST.items"><code class="name flex">
-<span>def <span class="ident">items</span></span><span>()</span>
+<span>def <span class="ident">items</span></span><span>(self) -> <code>List</code>[<code>Tuple</code>[<code>str</code>,<a title="clingo.ast.AST" href="#clingo.ast.AST"><code>AST</code></a>]]</span>
 </code></dt>
 <dd>
-<section class="desc"><p>items(self) -&gt; List[Tuple(str,AST)]</p>
-<p>The list of items of the AST node.</p>
+<section class="desc"><p>The list of items of the AST node.</p>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code>List</code>[<code>Tuple</code>(<code>str</code>,<a title="clingo.ast.AST" href="#clingo.ast.AST"><code>AST</code></a>)]</dt>
+<dt><code>List</code>[<code>Tuple</code>[<code>str</code>,<a title="clingo.ast.AST" href="#clingo.ast.AST"><code>AST</code></a>]]</dt>
 </dl></section>
 </dd>
 <dt id="clingo.ast.AST.keys"><code class="name flex">
@@ -1000,8 +998,10 @@ given in the <a href=".">grammar</a> above.</p></section>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of aggegate functions.</p>
-<p><a title="clingo.ast.AggregateFunction" href="#clingo.ast.AggregateFunction"><code>AggregateFunction</code></a> objects cannot be constructed from Python. Instead the
-following preconstructed class attributes are available:</p>
+<p><a title="clingo.ast.AggregateFunction" href="#clingo.ast.AggregateFunction"><code>AggregateFunction</code></a> objects have a readable string representation, implement
+Python's rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
+preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>Count</code></strong> :&ensp;<a title="clingo.ast.AggregateFunction" href="#clingo.ast.AggregateFunction"><code>AggregateFunction</code></a></dt>
@@ -1044,7 +1044,9 @@ following preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of binary operators.</p>
-<p><a title="clingo.ast.BinaryOperator" href="#clingo.ast.BinaryOperator"><code>BinaryOperator</code></a> objects cannot be constructed from Python. Instead the
+<p><a title="clingo.ast.BinaryOperator" href="#clingo.ast.BinaryOperator"><code>BinaryOperator</code></a> objects have a readable string representation, implement
+Python's rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the
 following preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
@@ -1112,8 +1114,10 @@ following preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of comparison operators.</p>
-<p><a title="clingo.ast.ComparisonOperator" href="#clingo.ast.ComparisonOperator"><code>ComparisonOperator</code></a> objects cannot be constructed from Python. Instead the
-following preconstructed class attributes are available:</p>
+<p><a title="clingo.ast.ComparisonOperator" href="#clingo.ast.ComparisonOperator"><code>ComparisonOperator</code></a> objects have a readable string representation, implement
+Python's rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
+preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>GreaterThan</code></strong> :&ensp;<a title="clingo.ast.ComparisonOperator" href="#clingo.ast.ComparisonOperator"><code>ComparisonOperator</code></a></dt>
@@ -1162,7 +1166,9 @@ following preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of theory atom types.</p>
-<p><a title="clingo.ast.ScriptType" href="#clingo.ast.ScriptType"><code>ScriptType</code></a> objects cannot be constructed from Python. Instead the following
+<p><a title="clingo.ast.ScriptType" href="#clingo.ast.ScriptType"><code>ScriptType</code></a> objects have a readable string representation, implement Python's
+rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
 preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
@@ -1188,8 +1194,10 @@ preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of signs for literals.</p>
-<p><a title="clingo.ast.Sign" href="#clingo.ast.Sign"><code>Sign</code></a> objects cannot be constructed from Python. Instead the
-following preconstructed class attributes are available:</p>
+<p><a title="clingo.ast.Sign" href="#clingo.ast.Sign"><code>Sign</code></a> objects have a readable string representation, implement Python's rich
+comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
+preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>NoSign</code></strong> :&ensp;<a title="clingo.ast.Sign" href="#clingo.ast.Sign"><code>Sign</code></a></dt>
@@ -1220,17 +1228,19 @@ following preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of theory atom types.</p>
-<p><a title="clingo.ast.TheoryAtomType" href="#clingo.ast.TheoryAtomType"><code>TheoryAtomType</code></a> objects cannot be constructed from Python. Instead the
-following preconstructed class attributes are available:</p>
+<p><a title="clingo.ast.TheoryAtomType" href="#clingo.ast.TheoryAtomType"><code>TheoryAtomType</code></a> objects have a readable string representation, implement
+Python's rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
+preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>Any</code></strong> :&ensp;<a title="clingo.ast.TheorySequenceType" href="#clingo.ast.TheorySequenceType"><code>TheorySequenceType</code></a></dt>
+<dt><strong><code>Any</code></strong> :&ensp;<a title="clingo.ast.TheoryAtomType" href="#clingo.ast.TheoryAtomType"><code>TheoryAtomType</code></a></dt>
 <dd>For atoms that can occur anywhere.</dd>
-<dt><strong><code>Body</code></strong> :&ensp;<a title="clingo.ast.TheorySequenceType" href="#clingo.ast.TheorySequenceType"><code>TheorySequenceType</code></a></dt>
+<dt><strong><code>Body</code></strong> :&ensp;<a title="clingo.ast.TheoryAtomType" href="#clingo.ast.TheoryAtomType"><code>TheoryAtomType</code></a></dt>
 <dd>For atoms that can only occur in rule bodies.</dd>
-<dt><strong><code>Head</code></strong> :&ensp;<a title="clingo.ast.TheorySequenceType" href="#clingo.ast.TheorySequenceType"><code>TheorySequenceType</code></a></dt>
+<dt><strong><code>Head</code></strong> :&ensp;<a title="clingo.ast.TheoryAtomType" href="#clingo.ast.TheoryAtomType"><code>TheoryAtomType</code></a></dt>
 <dd>For atoms that can only occur in rule heads.</dd>
-<dt><strong><code>Directive</code></strong> :&ensp;<a title="clingo.ast.TheorySequenceType" href="#clingo.ast.TheorySequenceType"><code>TheorySequenceType</code></a></dt>
+<dt><strong><code>Directive</code></strong> :&ensp;<a title="clingo.ast.TheoryAtomType" href="#clingo.ast.TheoryAtomType"><code>TheoryAtomType</code></a></dt>
 <dd>For atoms that can only occur in facts.</dd>
 </dl></section>
 <h3>Class variables</h3>
@@ -1258,8 +1268,10 @@ following preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of operator types.</p>
-<p><a title="clingo.ast.TheoryOperatorType" href="#clingo.ast.TheoryOperatorType"><code>TheoryOperatorType</code></a> objects cannot be constructed from Python. Instead the
-following preconstructed class attributes are available:</p>
+<p><a title="clingo.ast.TheoryOperatorType" href="#clingo.ast.TheoryOperatorType"><code>TheoryOperatorType</code></a> objects have a readable string representation, implement
+Python's rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
+preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>Unary</code></strong> :&ensp;<a title="clingo.ast.TheoryOperatorType" href="#clingo.ast.TheoryOperatorType"><code>TheoryOperatorType</code></a></dt>
@@ -1290,8 +1302,10 @@ following preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of theory term sequence types.</p>
-<p><a title="clingo.ast.TheorySequenceType" href="#clingo.ast.TheorySequenceType"><code>TheorySequenceType</code></a> objects cannot be constructed from Python. Instead the
-following preconstructed class attributes are available:</p>
+<p><a title="clingo.ast.TheorySequenceType" href="#clingo.ast.TheorySequenceType"><code>TheorySequenceType</code></a> objects have a readable string representation, implement
+Python's rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
+preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>Tuple</code></strong> :&ensp;<a title="clingo.ast.TheorySequenceType" href="#clingo.ast.TheorySequenceType"><code>TheorySequenceType</code></a></dt>
@@ -1333,8 +1347,10 @@ following preconstructed class attributes are available:</p>
 </code></dt>
 <dd>
 <section class="desc"><p>Enumeration of signs for literals.</p>
-<p><a title="clingo.ast.UnaryOperator" href="#clingo.ast.UnaryOperator"><code>UnaryOperator</code></a> objects cannot be constructed from Python. Instead the
-following preconstructed class attributes are available:</p>
+<p><a title="clingo.ast.UnaryOperator" href="#clingo.ast.UnaryOperator"><code>UnaryOperator</code></a> objects have a readable string representation, implement
+Python's rich comparison operators, and can be used as dictionary keys.</p>
+<p>Furthermore, they cannot be constructed from Python. Instead the following
+preconstructed class attributes are available:</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
 <dt><strong><code>Negation</code></strong> :&ensp;<a title="clingo.ast.UnaryOperator" href="#clingo.ast.UnaryOperator"><code>UnaryOperator</code></a></dt>
@@ -1382,7 +1398,7 @@ following preconstructed class attributes are available:</p>
 <ul class="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="clingo" href="{{site.baseurl}}{% link clingo/python-api/current/clingo/index.html %}">clingo</a></code></li>
+<li><code><a title="clingo" href="{{site.baseurl}}{% link clingo/python-api/5.4/index.html %}">clingo</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
