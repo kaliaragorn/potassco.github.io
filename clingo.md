@@ -63,6 +63,8 @@ The language did not change in version 5 but there were many API changes.
 - The [clorm] python library provides an object relational mapper-like interface to clingo.
   It allows facts to be asserted and extracted in an intuitive and easy to use way.
 - The [clingo-rs] project provides rust bindings to the clingo library.
+- The [clingo-haskell] project provides haskell bindings to the clingo library.
+- There are also rudimentary [prolog bindings][clingo-pl] to clingo.
 
 # Citing
 
@@ -80,3 +82,5 @@ The language did not change in version 5 but there were many API changes.
 
 [clorm]: https://github.com/daveraja/clorm
 [clingo-rs]: https://github.com/potassco/clingo-rs
+[clingo-haskell]: https://github.com/tsahyt/clingo-haskell
+[clingo-pl]: https://github.com/JanWielemaker/clingo
