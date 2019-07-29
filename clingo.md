@@ -58,6 +58,12 @@ The language did not change in version 5 but there were many API changes.
 [homebrew](https://formulae.brew.sh/formula/clingo) and
 [macports](https://www.macports.org/ports.php?by=name&substr=gringo).
 
+# Related Projects
+
+- The [clorm] python library provides an object relational mapper-like interface to clingo.
+  It allows facts to be asserted and extracted in an intuitive and easy to use way.
+- The [clingo-rs] project provides rust bindings to the clingo library.
+
 # Citing
 
 - Martin Gebser, Roland Kaminski, Benjamin Kaufmann and Torsten Schaub,
@@ -71,3 +77,6 @@ The language did not change in version 5 but there were many API changes.
 - Martin Gebser, Roland Kaminski, Benjamin Kaufmann and Torsten Schaub,
   [Multi-shot ASP solving with clingo]({{ site.publicationurl }}/#DBLP:journals/corr/GebserKKS17), TPLP, 2018
   \[[Experiments]({{ site.resourceurl }}/clingo/experiments-multishot.tar.xz)\]
+
+[clorm]: https://github.com/daveraja/clorm
+[clingo-rs]: https://github.com/potassco/clingo-rs
