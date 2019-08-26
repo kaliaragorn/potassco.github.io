@@ -1167,7 +1167,7 @@ the underlying solver (or any previously registered observers).</dd>
 <h2 id="notes">Notes</h2>
 <p>An observer should be a class of the form below. Not all functions have to be
 implemented and can be omitted if not needed.</p>
-<pre><code class="hljs python">class GroundProgramObserver:
+<pre><code class="hljs python">class Observer:
     def init_program(self, incremental: bool) -&gt; None:
         &quot;&quot;&quot;
         Called once in the beginning.
@@ -1723,7 +1723,7 @@ SAT
 </code></pre></section>
 </dd>
 <dt id="clingo.Control.solve"><code class="name flex">
-<span>def <span class="ident">solve</span></span><span>(self, assumptions:<code>List</code>[<code>Union</code>[<code>Tuple</code>[<a title="clingo.Symbol" href="#clingo.Symbol"><code>Symbol</code></a>,<code>bool</code>],<code>int</code>]]=[], on_model:<code>Callback</code>[[<a title="clingo.Model" href="#clingo.Model"><code>Model</code></a>],<code>Optional</code>[<code>bool</code>]]=<code>None</code>, on_statistics:<code>Callback</code>[[<a title="clingo.StatisticsMap" href="#clingo.StatisticsMap"><code>StatisticsMap</code></a>,<a title="clingo.StatisticsMap" href="#clingo.StatisticsMap"><code>StatisticsMap</code></a>],<code>None</code>]=<code>None</code>, on_finish:<code>Callback</code>[[<a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a>,<code>bool</code>],<code>None</code>]=<code>None</code>, yield_:<code>bool</code>=<code>False</code>, async_:<code>bool</code>=<code>False</code>) -> <code>Union</code>[<a title="clingo.SolveHandle" href="#clingo.SolveHandle"><code>SolveHandle</code></a>,<a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a>]</span>
+<span>def <span class="ident">solve</span></span><span>(self, assumptions:<code>List</code>[<code>Union</code>[<code>Tuple</code>[<a title="clingo.Symbol" href="#clingo.Symbol"><code>Symbol</code></a>,<code>bool</code>],<code>int</code>]]=[], on_model:<code>Callback</code>[[<a title="clingo.Model" href="#clingo.Model"><code>Model</code></a>],<code>Optional</code>[<code>bool</code>]]=<code>None</code>, on_statistics:<code>Callback</code>[[<a title="clingo.StatisticsMap" href="#clingo.StatisticsMap"><code>StatisticsMap</code></a>,<a title="clingo.StatisticsMap" href="#clingo.StatisticsMap"><code>StatisticsMap</code></a>],<code>None</code>]=<code>None</code>, on_finish:<code>Callback</code>[[<a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a>],<code>None</code>]=<code>None</code>, yield_:<code>bool</code>=<code>False</code>, async_:<code>bool</code>=<code>False</code>) -> <code>Union</code>[<a title="clingo.SolveHandle" href="#clingo.SolveHandle"><code>SolveHandle</code></a>,<a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a>]</span>
 </code></dt>
 <dd>
 <section class="desc"><p>Starts a search.</p>
@@ -1742,10 +1742,10 @@ returning False.</dd>
 <dt><strong><code>on_statistics</code></strong> :&ensp;<code>Callback</code>[[<a title="clingo.StatisticsMap" href="#clingo.StatisticsMap"><code>StatisticsMap</code></a>,<a title="clingo.StatisticsMap" href="#clingo.StatisticsMap"><code>StatisticsMap</code></a>],<code>None</code>]=<code>None</code></dt>
 <dd>Optional callback to update statistics.
 The step and accumulated statistics are passed as arguments.</dd>
-<dt><strong><code>on_finish</code></strong> :&ensp;<code>Callback</code>[[<a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a>,<code>bool</code>],<code>None</code>]=<code>None</code></dt>
+<dt><strong><code>on_finish</code></strong> :&ensp;<code>Callback</code>[[<a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a>],<code>None</code>]=<code>None</code></dt>
 <dd>Optional callback called once search has finished.
-A <a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a> and a <code>bool</code> indicating whether the solve call
-has been intrrupted or canceled are passed to the callback.</dd>
+A <a title="clingo.SolveResult" href="#clingo.SolveResult"><code>SolveResult</code></a> also indicating whether the solve call has been intrrupted
+is passed to the callback.</dd>
 <dt><strong><code>yield_</code></strong> :&ensp;<code>bool</code>=<code>False</code></dt>
 <dd>The resulting <a title="clingo.SolveHandle" href="#clingo.SolveHandle"><code>SolveHandle</code></a> is iterable yielding <a title="clingo.Model" href="#clingo.Model"><code>Model</code></a> objects.</dd>
 <dt><strong><code>async_</code></strong> :&ensp;<code>bool</code>=<code>False</code></dt>
@@ -2315,6 +2315,22 @@ threads but just the current one.</p></section>
 </dl>
 <h3>Methods</h3>
 <dl>
+<dt id="clingo.PropagateInit.add_clause"><code class="name flex">
+<span>def <span class="ident">add_clause</span></span><span>(self, clause:<code>List</code>[<code>int</code>]) -> <code>None</code></span>
+</code></dt>
+<dd>
+<section class="desc"><p>Statically adds the given clause to the problem.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>clause</code></strong> :&ensp;<code>List</code>[<code>int</code>]</dt>
+<dd>The clause over solver literals to add.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>Returns false if the clause is conflicting.</dd>
+</dl></section>
+</dd>
 <dt id="clingo.PropagateInit.add_watch"><code class="name flex">
 <span>def <span class="ident">add_watch</span></span><span>(self, literal:<code>int</code>, thread_id:<code>Optional</code>[<code>int</code>]=<code>None</code>) -> <code>None</code></span>
 </code></dt>
@@ -3248,6 +3264,7 @@ preconstructed class attributes are available:</p>
 <li>
 <h4><code><a title="clingo.PropagateInit" href="#clingo.PropagateInit">PropagateInit</a></code></h4>
 <ul class="two-column">
+<li><code><a title="clingo.PropagateInit.add_clause" href="#clingo.PropagateInit.add_clause">add_clause</a></code></li>
 <li><code><a title="clingo.PropagateInit.add_watch" href="#clingo.PropagateInit.add_watch">add_watch</a></code></li>
 <li><code><a title="clingo.PropagateInit.assignment" href="#clingo.PropagateInit.assignment">assignment</a></code></li>
 <li><code><a title="clingo.PropagateInit.check_mode" href="#clingo.PropagateInit.check_mode">check_mode</a></code></li>
