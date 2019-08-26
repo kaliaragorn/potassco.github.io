@@ -204,6 +204,7 @@ var searchData=
   ['clingo_5fpropagate_5fcontrol_5fremove_5fwatch',['clingo_propagate_control_remove_watch',['../group__Propagator.html#ga5eafff7defcfda57dda6310b1cfcebb3',1,'clingo.h']]],
   ['clingo_5fpropagate_5fcontrol_5ft',['clingo_propagate_control_t',['../group__Propagator.html#ga1cf43bea08101abb8b8cc7711c4c7165',1,'clingo.h']]],
   ['clingo_5fpropagate_5fcontrol_5fthread_5fid',['clingo_propagate_control_thread_id',['../group__Propagator.html#ga02df1c0442ea15d7c36237c692dbcb81',1,'clingo.h']]],
+  ['clingo_5fpropagate_5finit_5fadd_5fclause',['clingo_propagate_init_add_clause',['../group__Propagator.html#gaf50e3821b1082c273db33f1c3f3e86f7',1,'clingo.h']]],
   ['clingo_5fpropagate_5finit_5fadd_5fwatch',['clingo_propagate_init_add_watch',['../group__Propagator.html#gab4a0f0767529ad000f5d80b56b74104f',1,'clingo.h']]],
   ['clingo_5fpropagate_5finit_5fadd_5fwatch_5fto_5fthread',['clingo_propagate_init_add_watch_to_thread',['../group__Propagator.html#ga55c988474c6f2f1cf8df60e8dde8c928',1,'clingo.h']]],
   ['clingo_5fpropagate_5finit_5fassignment',['clingo_propagate_init_assignment',['../group__Propagator.html#gadf306c8cd515de6001c2205947dc3f88',1,'clingo.h']]],

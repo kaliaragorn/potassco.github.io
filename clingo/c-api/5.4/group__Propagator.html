@@ -205,6 +205,9 @@ Initialization Functions</h2></td></tr>
 <tr class="memitem:gadf306c8cd515de6001c2205947dc3f88"><td class="memItemLeft" align="right" valign="top">CLINGO_VISIBILITY_DEFAULT <a class="el" href="group__Propagator.html#ga6198e3190869e937ca7135e5314ddf26">clingo_assignment_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Propagator.html#gadf306c8cd515de6001c2205947dc3f88">clingo_propagate_init_assignment</a> (<a class="el" href="group__Propagator.html#ga640db8ba73adaddd5dbe50b572b77f25">clingo_propagate_init_t</a> const *init)</td></tr>
 <tr class="memdesc:gadf306c8cd515de6001c2205947dc3f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the top level assignment solver.  <a href="#gadf306c8cd515de6001c2205947dc3f88">More...</a><br /></td></tr>
 <tr class="separator:gadf306c8cd515de6001c2205947dc3f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf50e3821b1082c273db33f1c3f3e86f7"><td class="memItemLeft" align="right" valign="top">CLINGO_VISIBILITY_DEFAULT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Propagator.html#gaf50e3821b1082c273db33f1c3f3e86f7">clingo_propagate_init_add_clause</a> (<a class="el" href="group__Propagator.html#ga640db8ba73adaddd5dbe50b572b77f25">clingo_propagate_init_t</a> *init, <a class="el" href="group__BasicTypes.html#gaa95dd19334e536397bbad174c8fa4ff8">clingo_literal_t</a> const *clause, size_t size, bool *result)</td></tr>
+<tr class="memdesc:gaf50e3821b1082c273db33f1c3f3e86f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the given clause to the solver.  <a href="#gaf50e3821b1082c273db33f1c3f3e86f7">More...</a><br /></td></tr>
+<tr class="separator:gaf50e3821b1082c273db33f1c3f3e86f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Propagation Functions</h2></td></tr>
@@ -1143,6 +1146,62 @@ Propagation Functions</h2></td></tr>
 </dl>
 </div>
 </div>
+<a id="gaf50e3821b1082c273db33f1c3f3e86f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf50e3821b1082c273db33f1c3f3e86f7">&#9670;&nbsp;</a></span>clingo_propagate_init_add_clause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CLINGO_VISIBILITY_DEFAULT bool clingo_propagate_init_add_clause </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__Propagator.html#ga640db8ba73adaddd5dbe50b572b77f25">clingo_propagate_init_t</a> *&#160;</td>
+          <td class="paramname"><em>init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__BasicTypes.html#gaa95dd19334e536397bbad174c8fa4ff8">clingo_literal_t</a> const *&#160;</td>
+          <td class="paramname"><em>clause</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add the given clause to the solver. </p>
+<p>This method sets its result to false if the clause is causing a conflict.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">init</td><td>the target </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">clause</td><td>the clause to add </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>the size of the clause </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>result indicating whether the clause is conflicting </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether the call was successful; might set one of the following error codes:<ul>
+<li><a class="el" href="group__BasicTypes.html#gga5adba1f5e366e7489ac4a3fb5266dba6aa14a0926eb3e653fcc13299b33d8d348" title="memory could not be allocated ">clingo_error_bad_alloc</a> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
 <a id="gab4a0f0767529ad000f5d80b56b74104f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab4a0f0767529ad000f5d80b56b74104f">&#9670;&nbsp;</a></span>clingo_propagate_init_add_watch()</h2>
 
@@ -1475,7 +1534,7 @@ Propagation Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 11 2019 13:12:39 for Clingo C API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 26 2019 12:10:53 for Clingo C API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
